@@ -1,21 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+import InputTextField from "./components/InputTextField.js";
+import { Ionicons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import Navigation from "./Navigation";
+import { UserProvider } from "./context/UserContext";
+import { FirebaseProvider } from "./context/FirebaseContext";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <FirebaseProvider>
+      <UserProvider>
+        <Navigation />
+      </UserProvider>
+    </FirebaseProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
